@@ -1,12 +1,12 @@
 package org.devsaci.service;
 
 import org.devsaci.entity.Invoice;
-import org.devsaci.repository.InvoiceRepository;
+import org.devsaci.repository.InvoiceRepositoryInterface;
 
-public class InvoiceServiceMichel {
+public class InvoiceServiceMichel implements InvoiceServiceInterface{
     private static long lastNumber=112L;
 
-private InvoiceRepository invoiceRepository=new InvoiceRepository();
+private InvoiceRepositoryInterface invoiceRepository;
 
 
     public void createInvoice(Invoice invoice){

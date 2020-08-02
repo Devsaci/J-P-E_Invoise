@@ -5,7 +5,7 @@ import org.devsaci.entity.Invoice;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvoiceRepository {
+public class InvoiceRepository implements InvoiceRepositoryInterface{
 
     private static List<Invoice> invoices = new ArrayList<>();
 

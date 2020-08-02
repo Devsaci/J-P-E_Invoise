@@ -1,18 +1,24 @@
 package org.devsaci.controller;
 
 import org.devsaci.entity.Invoice;
-import org.devsaci.service.InvoiceService;
+import org.devsaci.service.InvoiceServiceInterface;
+
 
 import java.util.Scanner;
 
-public class InvoiceController {
-    public void createInvoiceUsingConsole(){
+
+public class InvoiceController implements InvoiceControllerInterface{
+
+    private InvoiceServiceInterface  invoiceService;
+
+
+    public void createInvoice(){
         System.out.println("What is the customer name?"  );
         Scanner sc=new Scanner(System.in);
         String customerNam=sc.nextLine();
-        Invoice invoice=new Invoice();
+        Invoice invoice = new Invoice();
         invoice.setCustomerName(customerNam);
-        InvoiceService invoiceService=new InvoiceService();
+
         invoiceService.createInvoice(invoice);
     }
 }
