@@ -1,8 +1,8 @@
 package org.devsaci;
 
 import org.devsaci.controller.InvoiceController;
+import org.devsaci.controller.InvoiceControllerChambouleToutMagasin2;
 import org.devsaci.controller.InvoiceControllerMichel;
-import org.devsaci.entity.Invoice;
 import org.devsaci.repository.InvoiceRepository;
 import org.devsaci.repository.InvoiceRepositoryMichel;
 import org.devsaci.service.InvoiceService;
@@ -14,8 +14,9 @@ import java.util.Scanner;
  * Hello world!
  */
 public class App {
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
 
         System.out.println("Dans quelle configuration êtes-vous ?");
         Scanner sc = new Scanner(System.in);
@@ -37,6 +38,26 @@ public class App {
             invoiceService.setInvoiceRepository(invoiceRepository);
             invoiceController.createInvoice();
         }
+        else if (configuration==3) {
+            InvoiceControllerMichel invoiceController = new InvoiceControllerMichel();
+            InvoiceService invoiceService=new InvoiceService();
+            invoiceController.setInvoiceService(invoiceService);
+            InvoiceRepositoryMichel invoiceRepository=new InvoiceRepositoryMichel();
+            invoiceService.setInvoiceRepository(invoiceRepository);
+            invoiceController.createInvoice();
+        }
+        else if (configuration==4) {
+            InvoiceControllerChambouleToutMagasin2 invoiceController = new InvoiceControllerChambouleToutMagasin2();
+            InvoiceService invoiceService=new InvoiceService();
+            invoiceController.setInvoiceService(invoiceService);
+            InvoiceRepositoryMichel invoiceRepository=new InvoiceRepositoryMichel();
+            invoiceService.setInvoiceRepository(invoiceRepository);
+            invoiceController.createInvoice();
+        }
+
+
+
+
     }
 
 }
