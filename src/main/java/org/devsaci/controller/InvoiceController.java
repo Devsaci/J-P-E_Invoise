@@ -11,6 +11,13 @@ public class InvoiceController implements InvoiceControllerInterface{
 
     private InvoiceServiceInterface  invoiceService;
 
+    public InvoiceServiceInterface getInvoiceService() {
+        return invoiceService;
+    }
+
+    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
+        this.invoiceService = invoiceService;
+    }
 
     public void createInvoice(){
         System.out.println("What is the customer name?"  );
