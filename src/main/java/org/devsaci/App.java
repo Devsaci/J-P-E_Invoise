@@ -3,6 +3,8 @@ package org.devsaci;
 import org.devsaci.controller.InvoiceController;
 import org.devsaci.controller.InvoiceControllerMichel;
 import org.devsaci.entity.Invoice;
+import org.devsaci.repository.InvoiceRepository;
+import org.devsaci.repository.InvoiceRepositoryMichel;
 import org.devsaci.service.InvoiceService;
 import org.devsaci.service.InvoiceServiceMichel;
 
@@ -21,12 +23,19 @@ public class App {
 
         if (configuration == 1) {
             InvoiceController invoiceController = new InvoiceController();
+            InvoiceService invoiceService = new InvoiceService();
+            invoiceController.setInvoiceService(invoiceService);
+            InvoiceRepository invoiceRepository = new InvoiceRepository();
+            invoiceService.setInvoiceRepository(invoiceRepository);
             invoiceController.createInvoice();
 
         } else if (configuration == 2) {
-            InvoiceControllerMichel invoiceControllerMichel = new InvoiceControllerMichel();
-            invoiceControllerMichel.createInvoice();
-
+            InvoiceControllerMichel invoiceController= new InvoiceControllerMichel();
+            InvoiceServiceMichel invoiceService = new InvoiceServiceMichel();
+            invoiceController.setInvoiceService(invoiceService);
+            InvoiceRepositoryMichel invoiceRepository=new InvoiceRepositoryMichel();
+            invoiceService.setInvoiceRepository(invoiceRepository);
+            invoiceController.createInvoice();
         }
     }
 
